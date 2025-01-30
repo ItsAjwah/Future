@@ -20,16 +20,21 @@
         padding: 20px;
         background-color: #4f85b8;
         color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
       }
 
       header .logo h1 {
         margin: 0;
         font-size: 24px;
+        animation: fadeIn 1s ease-in-out;
       }
 
       header .logo p {
         margin: 0;
         font-size: 14px;
+        animation: fadeIn 1.5s ease-in-out;
       }
 
       nav ul {
@@ -47,6 +52,16 @@
         color: #fff;
         text-decoration: none;
         font-size: 16px;
+        padding: 5px 10px;
+        transition: all 0.3s ease;
+        border-radius: 5px;
+      }
+
+      nav ul li a:hover {
+        background-color: #ff6f61;
+        color: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       }
 
       /* Hero Section */
@@ -58,16 +73,19 @@
         align-items: center;
         color: #0c0c0c;
         text-align: center;
+        animation: slideIn 1.5s ease-in-out;
       }
 
       .hero-content h2 {
         font-size: 48px;
         margin-bottom: 30px;
+        animation: fadeIn 2s ease-in-out;
       }
 
       .hero-content p {
         font-size: 24px;
         margin-bottom: 20px;
+        animation: fadeIn 2.5s ease-in-out;
       }
 
       .btn {
@@ -77,22 +95,30 @@
         text-decoration: none;
         border-radius: 5px;
         font-size: 18px;
+        transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #e65a50;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       }
 
       /* Products Section */
       .products {
-        padding: 0px 20px;
+        padding: 50px 20px;
         text-align: center;
       }
 
       .products h2 {
         font-size: 36px;
         margin-bottom: 40px;
+        animation: fadeIn 1s ease-in-out;
       }
 
       .product-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 20px;
       }
 
@@ -101,6 +127,12 @@
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       }
 
       .product-card img {
@@ -128,6 +160,7 @@
       .about h2 {
         font-size: 36px;
         margin-bottom: 20px;
+        animation: fadeIn 1s ease-in-out;
       }
 
       .about p {
@@ -135,6 +168,7 @@
         color: #333;
         max-width: 800px;
         margin: 0 auto;
+        animation: fadeIn 1.5s ease-in-out;
       }
 
       /* Contact Section */
@@ -146,6 +180,7 @@
       .contact h2 {
         font-size: 36px;
         margin-bottom: 20px;
+        animation: fadeIn 1s ease-in-out;
       }
 
       .contact-info {
@@ -190,11 +225,17 @@
         border-radius: 5px;
         font-size: 18px;
         cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      form button:hover {
+        background-color: #e65a50;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       }
 
       /* Footer */
       footer {
-        background-color: #333;
         background-color: #4f85b8;
         text-align: center;
         padding: 20px;
@@ -203,6 +244,27 @@
       footer p {
         margin: 0;
         font-size: 14px;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateY(-50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
       }
 
       /* Responsive Design */
@@ -236,7 +298,13 @@
         }
 
         .product-grid {
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .product-grid {
+          grid-template-columns: repeat(2, 1fr);
         }
       }
     </style>
@@ -264,131 +332,134 @@
           Your trusted partner in providing high-quality chemicals and dyes for
           various industries Since 2000.
         </p>
-
-        <!-- <a href="#contact" class="btn">Contact Us</a> -->
       </div>
     </section>
+
     <section id="products" class="products">
       <h2>Our Products</h2>
       <div class="product-grid">
-        <div class="product-card">
-          <img src="1.png" alt="Food Coloring" />
-          <h3>Acidic Acid</h3>
-          <p>
-            High-quality acid for industrial applications, used in various
-            manufacturing processes.
-          </p>
-        </div>
-        <div class="product-card">
-          <img src="2.png" alt="Detergents" />
-          <h3>Vinegar</h3>
-          <p>
-            Acidic liquid commonly used for cleaning, culinary, and preservation
-            purposes.
-          </p>
-        </div>
-        <div class="product-card">
-          <img src="3.png" alt="Oil" />
-          <h3>Neela Thotha</h3>
-          <p>
-            Specialized chemical used in the oil industry for various
-            applications.
-          </p>
-        </div>
-        <div class="product-card">
-          <img src="4.png" alt="Surf" />
-          <h3>Hydrogen Korea</h3>
-          <p>
-            Hydrogen-based chemicals used in manufacturing and industrial
-            applications.
-          </p>
-        </div>
-        <div class="product-card">
-          <img src="5.png" alt="Food Coloring" />
-          <h3>Formaline Taiwan</h3>
-          <p>
-            Formaldehyde-based chemical used in industrial processes, especially
-            for preservation.
-          </p>
-        </div>
-        <div class="product-card">
-          <img src="6.png" alt="Detergents" />
-          <h3>Milk-Full Cream</h3>
-          <p>
-            Full cream milk, commonly used in dairy products and as an
-            ingredient in various foods.
-          </p>
-        </div>
-        <div class="product-card">
-          <img src="7.png" alt="Oil" />
-          <h3>Germs Kill Medicine for Poultry</h3>
-          <p>
-            Medicinal solution for poultry to control germs and promote animal
-            health.
-          </p>
-        </div>
-        <div class="product-card">
-          <img src="8.png" alt="Surf" />
-          <h3>Castic Soda</h3>
-          <p>
-            Strong base used in soap making, chemical manufacturing, and
-            cleaning applications.
-          </p>
-        </div>
-        <div class="product-card">
-          <img src="9.png" alt="Food Coloring" />
-          <h3>Bleaching Powder</h3>
-          <p>
-            Powdered bleach used in cleaning, disinfecting, and laundry
-            applications.
-          </p>
-        </div>
-        <div class="product-card">
-          <img src="10.png" alt="Detergents" />
-          <h3>Acid</h3>
-          <p>
-            Strong acidic solution used for cleaning and industrial
-            applications.
-          </p>
-        </div>
-        <div class="product-card">
-          <img src="11.png" alt="Oil" />
-          <h3>Bleaching Liquid</h3>
-          <p>
-            Liquid bleach for cleaning, disinfection, and stain removal
-            purposes.
-          </p>
-        </div>
-        <div class="product-card">
-          <img src="12.png" alt="Surf" />
-          <h3>Detol</h3>
-          <p>
-            Antiseptic liquid used for cleaning, disinfecting, and sanitizing
-            surfaces and wounds.
-          </p>
-        </div>
-        <div class="product-card">
-          <img src="13.png" alt="Food Coloring" />
-          <h3>Washing Powders</h3>
-          <p>
-            Powdered detergent for washing clothes and cleaning household items.
-          </p>
-        </div>
-        <div class="product-card">
-          <img src="14.png" alt="Detergents" />
-          <h3>Soda Metha</h3>
-          <p>
-            Soda ash used in cleaning, water treatment, and various industrial
-            processes.
-          </p>
-        </div>
-        <div class="product-card">
-          <img src="15.png" alt="Oil" />
-          <h3>Glucose Powder</h3>
-          <p>
-            Glucose powder used in food production, pharmaceuticals, and energy
-            drinks.
-          </p>
+        <!-- Product Cards Here -->
+        <div class="product-grid">
+          <div class="product-card">
+            <img src="1.png" alt="Food Coloring" />
+            <h3>Acidic Acid</h3>
+            <p>
+              High-quality acid for industrial applications, used in various
+              manufacturing processes.
+            </p>
+          </div>
+          <div class="product-card">
+            <img src="2.png" alt="Detergents" />
+            <h3>Vinegar</h3>
+            <p>
+              Acidic liquid commonly used for cleaning, culinary, and
+              preservation purposes.
+            </p>
+          </div>
+          <div class="product-card">
+            <img src="3.png" alt="Oil" />
+            <h3>Copper Sulphate</h3>
+            <p>
+              Specialized chemical used in the oil industry for various
+              applications.
+            </p>
+          </div>
+          <div class="product-card">
+            <img src="4.png" alt="Surf" />
+            <h3>Hydrogen Korea</h3>
+            <p>
+              Hydrogen-based chemicals used in manufacturing and industrial
+              applications.
+            </p>
+          </div>
+          <div class="product-card">
+            <img src="5.png" alt="Food Coloring" />
+            <h3>Formaline Taiwan</h3>
+            <p>
+              Formaldehyde-based chemical used in industrial processes,
+              especially for preservation.
+            </p>
+          </div>
+          <div class="product-card">
+            <img src="6.png" alt="Detergents" />
+            <h3>Milk-Full Cream</h3>
+            <p>
+              Full cream milk, commonly used in dairy products and as an
+              ingredient in various foods.
+            </p>
+          </div>
+          <!-- <div class="product-card">
+            <img src="7.png" alt="Oil" />
+            <h3>Germs Kill Medicine for Poultry</h3>
+            <p>
+              Medicinal solution for poultry to control germs and promote animal
+              health.
+            </p>
+          </div> -->
+          <div class="product-card">
+            <img src="8.png" alt="Surf" />
+            <h3>Castic Soda</h3>
+            <p>
+              Strong base used in soap making, chemical manufacturing, and
+              cleaning applications.
+            </p>
+          </div>
+          <div class="product-card">
+            <img src="9.png" alt="Food Coloring" />
+            <h3>Bleaching Powder</h3>
+            <p>
+              Powdered bleach used in cleaning, disinfecting, and laundry
+              applications.
+            </p>
+          </div>
+          <div class="product-card">
+            <img src="10.png" alt="Detergents" />
+            <h3>Acid</h3>
+            <p>
+              Strong acidic solution used for cleaning and industrial
+              applications.
+            </p>
+          </div>
+          <div class="product-card">
+            <img src="11.png" alt="Oil" />
+            <h3>Bleaching Liquid</h3>
+            <p>
+              Liquid bleach for cleaning, disinfection, and stain removal
+              purposes.
+            </p>
+          </div>
+          <div class="product-card">
+            <img src="12.png" alt="Surf" />
+            <h3>Detol</h3>
+            <p>
+              Antiseptic liquid used for cleaning, disinfecting, and sanitizing
+              surfaces and wounds.
+            </p>
+          </div>
+          <div class="product-card">
+            <img src="13.png" alt="Food Coloring" />
+            <h3>Washing Powders</h3>
+            <p>
+              Powdered detergent for washing clothes and cleaning household
+              items.
+            </p>
+          </div>
+          <div class="product-card">
+            <img src="14.png" alt="Detergents" />
+            <h3>Soda Metha</h3>
+            <p>
+              Soda ash used in cleaning, water treatment, and various industrial
+              processes.
+            </p>
+          </div>
+          <div class="product-card">
+            <img src="15.png" alt="Oil" />
+            <h3>Glucose Powder</h3>
+            <p>
+              Glucose powder used in food production, pharmaceuticals, and
+              energy drinks.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -428,7 +499,6 @@
     </footer>
 
     <script>
-      // JavaScript for form submission
       document
         .getElementById("contact-form")
         .addEventListener("submit", function (event) {
