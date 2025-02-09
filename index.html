@@ -104,50 +104,73 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       }
 
-      /* Products Section */
       .products {
-        padding: 30px 15px;
         text-align: center;
+        padding: 20px;
       }
 
-      .products h2 {
-        font-size: 24px;
+      .category {
         margin-bottom: 20px;
-        animation: fadeIn 1s ease-in-out;
       }
 
-      .product-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 15px;
+      h3 {
+        text-align: left;
+        margin-left: 10px;
+      }
+      h4 {
+        white-space: normal;
+        display: block;
+        overflow: visible;
+      }
+
+      /* Scrollable Product Container */
+      .product-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        padding: 10px;
+        scroll-behavior: smooth;
+        overflow-x: scroll;
+        scrollbar-width: none;
+        white-space: nowrap;
+      }
+
+      /* Hide scrollbar on desktop */
+      .product-container::-webkit-scrollbar {
+        display: none;
       }
 
       .product-card {
-        background-color: #f9f9f9;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-      }
-
-      .product-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        flex: 0 0 auto;
+        width: 160px;
+        background: white;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
       }
 
       .product-card img {
         width: 100%;
-        border-radius: 10px;
+        height: auto;
+        border-radius: 5px;
       }
 
-      .product-card h3 {
-        font-size: 18px;
-        margin: 10px 0;
+      /* Responsive for Mobile */
+      @media (max-width: 768px) {
+        .product-container {
+          width: 100%;
+          padding: 5px;
+        }
+
+        .product-card {
+          width: 140px;
+        }
       }
 
-      .product-card p {
-        font-size: 14px;
-        color: #666;
+      /* Hide Scrollbar (Optional) */
+      .product-slider::-webkit-scrollbar {
+        display: none;
       }
 
       /* About Section */
@@ -328,6 +351,22 @@
         .product-grid {
           grid-template-columns: 1fr;
         }
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+          .product-grid-container {
+            grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
+          }
+        }
+
+        @media (max-width: 768px) {
+          .product-grid-container {
+            grid-template-columns: 1fr; /* Single column for mobile */
+          }
+
+          .product-grid {
+            grid-template-columns: 1fr; /* Single product per row on mobile */
+          }
+        }
       }
     </style>
   </head>
@@ -347,181 +386,230 @@
       </nav>
     </header>
 
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <h2>Welcome to Future</h2>
-        <p>
-          Your trusted partner in providing high-quality chemicals and dyes for
-          various industries Since 2000.
-        </p>
-      </div>
-    </section>
-
     <section id="products" class="products">
       <h2>Our Products</h2>
-      <div class="product-grid">
-        <!-- Product Cards Here -->
-        <div class="product-grid">
+
+      <!-- Chemicals -->
+      <div class="category">
+        <h3>Chemicals</h3>
+        <div class="product-container" id="chemicals">
           <div class="product-card">
-            <img src="1.png" alt="Food Coloring" />
-            <h3>Acidic Acid</h3>
-            <p>
-              High-quality acid for industrial applications, used in various
-              manufacturing processes.
-            </p>
+            <img src="1.png" alt="Acidic Acid" />
+            <h4>Acidic Acid</h4>
           </div>
           <div class="product-card">
-            <img src="2.png" alt="Detergents" />
-            <h3>Vinegar</h3>
-            <p>
-              Acidic liquid commonly used for cleaning, culinary, and
-              preservation purposes.
-            </p>
+            <img src="2.png" alt="Vinegar" />
+            <h4>Vinegar</h4>
           </div>
           <div class="product-card">
-            <img src="3.png" alt="Oil" />
-            <h3>Copper Sulphate</h3>
-            <p>
-              Specialized chemical used in the oil industry for various
-              applications.
-            </p>
+            <img src="3.png" alt="Copper Sulphate" />
+            <h4>Copper Sulphate</h4>
           </div>
           <div class="product-card">
-            <img src="4.png" alt="Surf" />
-            <h3>Hydrogen Per oxide</h3>
-            <p>
-              Hydrogen-based chemicals used in manufacturing and industrial
-              applications.
-            </p>
+            <img src="4.png" alt="Hydrogen Peroxide" />
+            <h4>Hydrogen Peroxide</h4>
           </div>
           <div class="product-card">
-            <img src="5.png" alt="Food Coloring" />
-            <h3>Formaline</h3>
-            <p>
-              Formaldehyde-based chemical used in industrial processes,
-              especially for preservation.
-            </p>
+            <img src="5.png" alt="Formaline" />
+            <h4>Formaline</h4>
           </div>
           <div class="product-card">
-            <img src="6.png" alt="Detergents" />
-            <h3>Milk of Cream</h3>
-            <p>
-              Full cream milk, commonly used in dairy products and as an
-              ingredient in various foods.
-            </p>
-          </div>
-          <!-- <div class="product-card">
-            <img src="7.png" alt="Oil" />
-            <h3>Germs Kill Medicine for Poultry</h3>
-            <p>
-              Medicinal solution for poultry to control germs and promote animal
-              health.
-            </p>
-          </div> -->
-          <div class="product-card">
-            <img src="8.png" alt="Surf" />
-            <h3>Caustic Soda</h3>
-            <p>
-              Strong base used in soap making, chemical manufacturing, and
-              cleaning applications.
-            </p>
+            <img src="8.png" alt="Caustic Soda" />
+            <h4>Caustic Soda</h4>
           </div>
           <div class="product-card">
-            <img src="9.png" alt="Food Coloring" />
-            <h3>Bleaching Powder</h3>
-            <p>
-              Powdered bleach used in cleaning, disinfecting, and laundry
-              applications.
-            </p>
+            <img src="9.png" alt="Bleaching Powder" />
+            <h4>Bleaching Powder</h4>
           </div>
           <div class="product-card">
-            <img src="10.png" alt="Detergents" />
-            <h3>Acid</h3>
-            <p>
-              Strong acidic solution used for cleaning and industrial
-              applications.
-            </p>
+            <img src="10.png" alt="Acid" />
+            <h4>Acid</h4>
           </div>
           <div class="product-card">
-            <img src="11.png" alt="Oil" />
-            <h3>Chlorine</h3>
-            <p>
-              Liquid bleach for cleaning, disinfection, and stain removal
-              purposes.
-            </p>
-          </div>
-          <div class="product-card">
-            <img src="12.png" alt="Surf" />
-            <h3>Dettol</h3>
-            <p>
-              Antiseptic liquid used for cleaning, disinfecting, and sanitizing
-              surfaces and wounds.
-            </p>
-          </div>
-          <div class="product-card">
-            <img src="13.png" alt="Food Coloring" />
-            <h3>Washing Powders</h3>
-            <p>
-              Powdered detergent for washing clothes and cleaning household
-              items.
-            </p>
-          </div>
-          <div class="product-card">
-            <img src="14.png" alt="Detergents" />
-            <h3>Soda Metha</h3>
-            <p>
-              Soda ash used in cleaning, water treatment, and various industrial
-              processes.
-            </p>
+            <img src="11.png" alt="Chlorine" />
+            <h4>Chlorine</h4>
           </div>
           <div class="product-card">
             <img src="16 (1).jpeg" alt="Ammonium Bicarbonate" />
-            <h3>Ammonium Bicarbonate</h3>
-            <p>
-              A white crystalline powder used as a leavening agent in baking and
-              as a nitrogen source in fertilizers.
-            </p>
+            <h4>Ammonium Bicarbonate</h4>
           </div>
           <div class="product-card">
             <img src="16 (2).jpeg" alt="Sodium Lauryl Ether Sulfate" />
-            <h3>Sodium Lauryl Ether Sulfate (SLES)</h3>
-            <p>
-              A surfactant commonly used in detergents, shampoos, and cleaning
-              products for its foaming and emulsifying properties.
-            </p>
+            <h4>Sodium Lauryl Ether Sulfate (SLES)</h4>
           </div>
           <div class="product-card">
             <img src="16 (3).jpeg" alt="Sulfuric Acid" />
-            <h3>Sulfuric Acid</h3>
-            <p>
-              A highly corrosive strong mineral acid used in industrial
-              processes, chemical manufacturing, and laboratory applications.
-            </p>
+            <h4>Sulfuric Acid</h4>
           </div>
           <div class="product-card">
             <img src="17 (1).jpeg" alt="Sodium Sulfide" />
-            <h3>Sodium Sulfide</h3>
-            <p>
-              A chemical compound used in the paper and pulp industry, water
-              treatment, and as a reducing agent in chemical reactions.
-            </p>
+            <h4>Sodium Sulfide</h4>
           </div>
           <div class="product-card">
             <img src="17 (2).jpeg" alt="Oxalic Acid" />
-            <h3>Oxalic Acid</h3>
-            <p>
-              A strong organic acid used as a cleaning agent, rust remover, and
-              in bleaching applications.
-            </p>
+            <h4>Oxalic Acid</h4>
           </div>
           <div class="product-card">
             <img src="17 (3).jpeg" alt="Citric Acid" />
-            <h3>Citric Acid</h3>
-            <p>
-              A weak organic acid commonly used as a preservative, flavoring
-              agent, and cleaning agent in food, beverages, and household
-              products.
-            </p>
+            <h4>Citric Acid</h4>
+          </div>
+          <div class="product-card">
+            <img src="6.png" alt="Milk of Cream" />
+            <h4>Milk of Cream</h4>
+          </div>
+          <div class="product-card">
+            <img src="12.png" alt="Dettol" />
+            <h4>Dettol</h4>
+          </div>
+          <div class="product-card">
+            <img src="13.png" alt="Washing Powders" />
+            <h4>Washing Powders</h4>
+          </div>
+          <div class="product-card">
+            <img src="14.png" alt="Soda Metha" />
+            <h4>Soda Metha</h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- Apparel -->
+      <div class="category">
+        <h3>Apparel</h3>
+        <div class="product-container" id="apparel">
+          <div class="product-card">
+            <img src="j1.png" alt="Men's Shirts" />
+            <h4>Men's Leather Jacket</h4>
+          </div>
+          <div class="product-card">
+            <img src="j2.png" alt="Women's Dresses" />
+            <h4>Women's Dresses</h4>
+          </div>
+          <div class="product-card">
+            <img src="j3.png" alt="Women's Dresses" />
+            <h4>Women's Dresses</h4>
+          </div>
+          <div class="product-card">
+            <img src="j4.png" alt="Women's Dresses" />
+            <h4>Women's Dresses</h4>
+          </div>
+          <div class="product-card">
+            <img src="a1.png" alt="Women's Dresses" />
+            <h4>T shirt with custom logo</h4>
+          </div>
+          <div class="product-card">
+            <img src="a2.png" alt="Women's Dresses" />
+            <h4>Hoodies with custom logo</h4>
+          </div>
+          <div class="product-card">
+            <img src="a3.png" alt="Women's Dresses" />
+            <h4>Puffer Jacket</h4>
+          </div>
+          <div class="product-card">
+            <img src="a4.png" alt="Women's Dresses" />
+            <h4>T shirt in Differnt colors and logo</h4>
+          </div>
+          <div class="product-card">
+            <img src="a5.png" alt="Women's Dresses" />
+            <h4>Track Suits</h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- Salts -->
+      <div class="category">
+        <h3>Salts</h3>
+        <div class="product-container" id="salts">
+          <div class="product-card">
+            <img
+              src="e9e067a4-104f-43ec-967d-16a1cd5379d2.jpg"
+              alt="Table Salt"
+            />
+            <h4>Pink Salt</h4>
+          </div>
+          <div class="product-card">
+            <img src="ps.png" alt="Table Salt" />
+            <h4>Table Salt</h4>
+          </div>
+          <div class="product-card">
+            <img src="s3.png" alt="Table Salt" />
+            <h4>Crystal Pink Salt</h4>
+          </div>
+          <div class="product-card">
+            <img src="s2 (1).jpeg" alt="Table Salt" />
+            <h4>tea light and console holders</h4>
+          </div>
+          <div class="product-card">
+            <img src="s2 (2).jpeg" alt="Himalayan Pink Salt" />
+            <h4>Mini lamp collection</h4>
+          </div>
+          <div class="product-card">
+            <img src="s2 (3).jpeg" alt="Himalayan Pink Salt" />
+            <h4>electric diffuser</h4>
+          </div>
+          <div class="product-card">
+            <img src="s2 (4).jpeg" alt="Himalayan Pink Salt" />
+            <h4>aniaml shape slat lamps</h4>
+          </div>
+          <div class="product-card">
+            <img src="s2 (5).jpeg" alt="Himalayan Pink Salt" />
+            <h4>fire shape salt lamps</h4>
+          </div>
+
+          <div class="product-card">
+            <img src="s2 (7).jpeg" alt="Himalayan Pink Salt" />
+            <h4>speical deisgn salt lamp</h4>
+          </div>
+          <div class="product-card">
+            <img src="s2 (8).jpeg" alt="Himalayan Pink Salt" />
+            <h4>speical deisgn salt lamp</h4>
+          </div>
+          <div class="product-card">
+            <img src="s2 (9).jpeg" alt="Himalayan Pink Salt" />
+            <h4>speical deisgn salt lamp</h4>
+          </div>
+          <div class="product-card">
+            <img src="s2 (10).jpeg" alt="Himalayan Pink Salt" />
+            <h4>speical deisgn salt lamp</h4>
+          </div>
+          <div class="product-card">
+            <img src="s2 (11).jpeg" alt="Himalayan Pink Salt" />
+            <h4>speical deisgn salt lamp</h4>
+          </div>
+          <div class="product-card">
+            <img src="s2 (12).jpeg" alt="Himalayan Pink Salt" />
+            <h4>speical deisgn salt lamp</h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kid Wear -->
+      <div class="category">
+        <h3>Kid Wear</h3>
+        <div class="product-container" id="kidwear">
+          <div class="product-card">
+            <img src="k1.png" alt="Baby Rompers" />
+            <h4>Kid T-shirts</h4>
+          </div>
+          <div class="product-card">
+            <img src="k2.png" alt="Kids T-Shirts" />
+            <h4>Kids T-Shirts</h4>
+          </div>
+          <div class="product-card">
+            <img src="k3.png" alt="Kids T-Shirts" />
+            <h4>Kids T-Shirts</h4>
+          </div>
+
+          <div class="product-card">
+            <img src="k5.png" alt="Kids T-Shirts" />
+            <h4>Kids T-Shirts</h4>
+          </div>
+          <div class="product-card">
+            <img src="k6.png" alt="Kids T-Shirts" />
+            <h4>Kids T-Shirts</h4>
+          </div>
+          <div class="product-card">
+            <img src="k7.png" alt="Kids T-Shirts" />
+            <h4>Kids T-Shirts</h4>
           </div>
         </div>
       </div>
@@ -530,10 +618,53 @@
     <section id="about" class="about">
       <h2>About Us</h2>
       <p>
-        Future is a leading supplier of chemicals and dyes, serving industries
-        such as food, detergents, oil, and more. Since 2000, we have been
-        delivering innovative solutions across Pakistan, committed to shaping
-        tomorrow with the highest standards of quality and reliability.
+        Future Traders is a leading supplier of high-quality chemicals, apparel,
+        salt, and kids' apparel, serving diverse industries across Pakistan.
+        Since 2000, we have been dedicated to delivering innovative solutions
+        with a strong commitment to quality, reliability, and customer
+        satisfaction. Our expertise, industry knowledge, and focus on excellence
+        make us a trusted name in the market.
+      </p>
+
+      <!-- <h4>Chemicals</h4>
+      <p>
+        We provide premium-grade industrial and commercial chemicals used in
+        food, detergent, oil, and manufacturing sectors. Our products meet the
+        highest industry standards, ensuring safety, efficiency, and superior
+        performance.
+      </p>
+
+      <h4>Apparel</h4>
+      <p>
+        Our apparel division offers high-quality, stylish, and comfortable
+        clothing for men and women. Designed with attention to detail and
+        crafted from premium fabrics, our apparel combines fashion and
+        durability.
+      </p>
+
+      <h4>Salt</h4>
+      <p>
+        We supply high-purity salt for industrial, commercial, and household
+        applications. Our products are carefully processed to maintain
+        exceptional quality, ensuring superior taste, texture, and
+        effectiveness.
+      </p>
+
+      <h4>Kids' Apparel</h4>
+      <p>
+        Our kids' apparel collection features trendy, comfortable, and durable
+        clothing designed for children of all ages. We prioritize quality,
+        style, and practicality to ensure the best for your little ones.
+      </p> -->
+
+      <h3>Meet Our Team</h3>
+      <p>
+        <strong>📞 Financial Manager:</strong> Alyan Asif |
+        <a href="tel:+923020004370">+92 302 0004370</a>
+      </p>
+      <p>
+        <strong>📞 Marketing Manager:</strong> Ajwa Asif |
+        <a href="tel:+923000024370">+92 300 0024370</a>
       </p>
     </section>
 
